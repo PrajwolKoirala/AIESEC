@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Invitation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #invitation {
+            text-align: center;
+        }
+
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #noButton {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #noButton:hover {
+            position: absolute;
+            top: ${(Math.random() * 80).toFixed()}%; /* Randomize the top position */
+            left: ${(Math.random() * 80).toFixed()}%; /* Randomize the left position */
+        }
+    </style>
+</head>
+<body>
+    <div id="invitation">
+        <h1>You're Invited TO AIESEC INDUCTION ROUND!</h1>
+        <p>Will you be joining us?</p>
+        <button id="yesButton" onclick="showThankYou()">Yes</button>
+        <button id="noButton">No</button>
+
+        <script>
+            const noButton = document.getElementById('noButton');
+
+            noButton.addEventListener('mouseover', () => {
+                noButton.style.position = 'absolute';
+                noButton.style.top = `${(Math.random() * 80).toFixed()}%`;
+                noButton.style.left = `${(Math.random() * 80).toFixed()}%`;
+            });
+
+            function showThankYou() {
+                alert('Thank You for accepting the invitation!');
+                document.body.classList.add('happy-background');
+            }
+        </script>
+    </div>
+</body>
+</html>
